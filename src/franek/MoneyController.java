@@ -7,9 +7,13 @@ public class MoneyController {
     private ArrayList<Coin> bank;
 
     protected Coin returnCoin() {
-        Coin returnedCoin = this.coinBuffer;
-        this.coinBuffer = NULL;
-        return returnedCoin;
+        if(this.isCoinInserted()) {
+            Coin returnedCoin = this.coinBuffer;
+            this.coinBuffer = NULL;
+            return returnedCoin;
+        }
+        else
+            throw(new VendingMachineException("There is no coin in buffer!"));
     }
 
     protected boolean isCoinInserted() {
@@ -19,7 +23,10 @@ public class MoneyController {
     }
 
     protected void insertCoinToBuffer(Coin coin){
-        this.coinBuffer = coin;
+        if(this.isCoinInserted())
+            throw(new VendingMachineException("Buffer is full!"));
+        else
+            this.coinBuffer = coin;
     }
 
     protected void storeCoinToBank() {
