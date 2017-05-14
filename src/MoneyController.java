@@ -26,7 +26,7 @@ class MoneyController {
             throw new VendingMachineException("W automacie nie ma monety");
     }
 
-    void storeCoin() {
+    void storeCoin() { // TODO storeCoin nigdy nie rzuci swojego błędu
         if (this.isCoinInserted()) {
             bank.add(this.coinBuffer);
             this.coinBuffer = null;
