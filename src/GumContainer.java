@@ -17,17 +17,17 @@ class GumContainer {
             throw new VendingMachineException("Nie można dostarczyć gumy, bo zbiornik jest pusty");
     }
 
-    void replenish(List<Gumball> gumballs) {
+    void replenishGums(List<Gumball> gumballs) {
         while (!gumballs.isEmpty()) {
             Gumball gumball = gumballs.get(0);
-            if (!this.replenishOne(gumball)) //is full now
+            if (!this.replenishGum(gumball)) //is full now
                 throw new VendingMachineException("Nie można dołożyć kolejnej gumy, bo zbiornik jest pełen");
             else
                 gumballs.remove(0);
         }
     }
 
-    private boolean replenishOne(Gumball gumball) {
+    private boolean replenishGum(Gumball gumball) {
         if (!this.isFull()) {
             actualContent.add(gumball);
             return true;

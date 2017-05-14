@@ -1,9 +1,9 @@
+import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 class MoneyController {
     private Coin coinBuffer;
-    private final List<Coin> bank;
+    private final Collection<Coin> bank;
 
     MoneyController() {
         this.coinBuffer = null;
@@ -34,13 +34,13 @@ class MoneyController {
             throw new VendingMachineException("W automacie nie ma monety");
     }
 
-    List<Coin> removeCoins() {
-        List<Coin> coins = new LinkedList<>(this.bank);
+    Collection<Coin> removeCoins() {
+        Collection<Coin> coins = new LinkedList<>(this.bank);
         this.bank.removeAll(coins);
         return coins;
     }
 
-    private boolean isCoinInserted() {
+    boolean isCoinInserted() {
         return coinBuffer != null;
     }
 }
