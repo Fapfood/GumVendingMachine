@@ -20,7 +20,7 @@ public class VendingMachine {
         if (this.moneyController.isCoinInserted()) {
             if (this.isProviderEmpty()) {
                 this.gumProvider = this.gumContainer.provideGum();
-                this.moneyController.storeCoin();
+                this.moneyController.storeCoin(); // TODO storeCoin nigdy nie rzuci swojego błędu
             } else
                 throw new VendingMachineException("Nie można wcisnąć przycisku, bo w pojemniczku jest poprzednia guma");
         } else
