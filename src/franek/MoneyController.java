@@ -1,5 +1,7 @@
 package franek;
 
+import java.util.ArrayList;
+
 public class MoneyController {
     private Coin coinBuffer;
     private ArrayList<Coin> bank;
